@@ -16,9 +16,7 @@
     --gris: #cccccc;
 
     /* TIPOGRAFÍA */
-    /* Títulos y Navbar: Montserrat (Fuerza y Estilo) */
     --fuente-titulos: 'Montserrat', sans-serif;
-    /* Cuerpo: Poppins */
     --fuente-cuerpo: 'Poppins', sans-serif;
 }
 
@@ -56,7 +54,7 @@ header.scrolled {
     background: var(--negro);
 }
 
-/* LOGO: Montserrat 900 (Black) */
+/* LOGO */
 .logo {
     display: flex;
     align-items: center;
@@ -69,19 +67,31 @@ header.scrolled {
     margin-right: auto;
     padding: 0.5rem 1rem;
     text-transform: uppercase;
-    text-decoration: none;
     font-family: var(--fuente-titulos);
     font-weight: 900;
     letter-spacing: -0.5px;
     white-space: nowrap;
     flex-shrink: 0;
+    /* Asegura que el contenedor no tenga decoración */
+    text-decoration: none !important;
+    border: none !important;
 }
 
-.logo-text {
+/* El texto del logo (etiqueta <a>) */
+.logo-text,
+.logo-text:link,
+.logo-text:visited,
+.logo-text:hover,
+.logo-text:active,
+.logo-text:focus {
     color: var(--celeste);
+    text-decoration: none !important; /* QUITA LA FRANJA EN TODOS LOS ESTADOS */
+    border-bottom: none !important;
+    outline: none !important;
 }
 
-.logo:hover {
+/* Efecto Hover solo para el color */
+.logo:hover .logo-text {
     color: var(--celeste-suave) !important;
 }
 
@@ -99,7 +109,7 @@ header.scrolled {
     transform: rotate(90deg);
 }
 
-/* ENLACES NAV: Montserrat 800 */
+/* ENLACES NAV */
 .nav-links {
     display: flex;
     justify-content: center;
@@ -133,8 +143,122 @@ header.scrolled {
     transform: translateY(-2px);
 }
 
+/* ANIMACIONES DEL MENÚ MÓVIL (Overlay) */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 998;
+    backdrop-filter: blur(2px);
+}
+
+.menu-overlay.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- RESPONSIVE HEADER & NAVBAR (Tablets y Móviles) --- */
+@media (max-width: 992px) {
+    .navbar {
+        height: 70px;
+        padding: 0 1rem;
+    }
+
+    .logo {
+        order: 1;
+        font-size: 1.7rem !important;
+    }
+
+    .logo i {
+        font-size: 1.9rem !important;
+    }
+
+    /* Menú lateral (Hamburguesa activada) */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--negro);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 6rem 2rem;
+        gap: 2rem;
+        transform: none;
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        order: 2;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* Animación de items del menú al entrar */
+    .nav-links.active .nav-item {
+        animation: slideInRight 0.4s ease forwards;
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    .nav-links.active .nav-item:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links.active .nav-item:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links.active .nav-item:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links.active .nav-item:nth-child(4) { animation-delay: 0.4s; }
+
+    /* Rotación de tijeras al abrir menú */
+    .nav-links.active~.navbar .logo i,
+    body.menu-open .logo i {
+        transform: rotate(90deg);
+        color: var(--celeste-suave);
+    }
+
+    .nav-link {
+        font-size: 1.4rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        padding: 1rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        height: 70px;
+        padding: 0 1rem;
+    }
+    .logo {
+        font-size: 1.6rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-links {
+        width: 85%;
+        padding: 6rem 1.5rem;
+    }
+}
+
+
 /* =========================================
-   3. HERO SECTION - CORREGIDO
+   3. HERO SECTION (CARRUSEL PRINCIPAL)
    ========================================= */
 .hero {
     position: relative;
@@ -144,21 +268,11 @@ header.scrolled {
     background-color: var(--negro);
 }
 
-/* =========================================
-   CORRECCIÓN FLASH CARRUSEL (FOUC)
-   ========================================= */
-.carousel {
-    position: relative;
-    overflow: hidden;
-}
+/* Estructura Carrusel */
+.carousel { position: relative; overflow: hidden; }
+.carousel-inner { position: relative; width: 100%; overflow: hidden; }
+.carousel-inner::after { content: ''; display: block; clear: both; }
 
-.carousel-inner {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-/* Ocultar todos los items del carrusel por defecto */
 .carousel-item {
     display: none;
     position: relative;
@@ -168,43 +282,21 @@ header.scrolled {
     backface-visibility: hidden;
     transition: transform 0.6s ease-in-out;
 }
+.carousel-item.active { display: block; }
 
-/* Solo mostrar el item activo */
-.carousel-item.active {
-    display: block;
-}
-
-/* Forzar que las imágenes ocupen todo el ancho */
-.carousel-item img {
-    width: 100% !important;
-    display: block;
-}
-
-/* Asegurar que el carrusel no colapse durante la carga */
-.carousel-inner::after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
-/* Prevenir el flash inicial */
+/* Prevenir flash inicial */
 .carousel-item:not(.active) {
     position: absolute !important;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    z-index: -1;
+    top: 0; left: 0; opacity: 0; z-index: -1;
+}
+.carousel-item.active {
+    position: relative; opacity: 1; z-index: 1;
 }
 
-.carousel-item.active {
-    position: relative;
-    opacity: 1;
-    z-index: 1;
-}
-/* IMAGEN DEL CARRUSEL - UNA SOLA DEFINICIÓN */
+/* IMAGEN HERO (La que se corta) */
 .hero-img {
     width: 100%;
-    height: 85vh;
+    height: 85vh; /* Altura original PC */
     object-fit: cover;
     object-position: center;
     display: block;
@@ -230,8 +322,218 @@ header.scrolled {
     letter-spacing: 1px;
 }
 
+/* --- RESPONSIVE HERO --- */
+@media (max-width: 992px) {
+    .hero {
+        padding-top: 70px !important;
+    }
+    .hero-img {
+        height: 60vh; /* Se reduce altura en tablets */
+    }
+    .carousel-caption h5 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-img {
+        height: 50vh; /* Se reduce altura en móvil horizontal */
+    }
+    .carousel-caption h5 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-img {
+        height: 45vh; /* Altura mínima en celulares */
+    }
+}
+
+
 /* =========================================
-   4. SECCIÓN BARBERÍA
+   4. SECCIÓN ALUMNOS (CARRUSEL INFINITO)
+   ========================================= */
+#carrusel-alumnos-section {
+    background: var(--blanco);
+    padding-bottom: 80px;
+    overflow: hidden;
+}
+
+.titulo-alumnos {
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--negro);
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.alumnos-slider {
+    height: 380px;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+/* Niebla lateral */
+.alumnos-slider::before,
+.alumnos-slider::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+    pointer-events: none;
+}
+.alumnos-slider::before { left: 0; background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%); }
+.alumnos-slider::after { right: 0; background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%); }
+
+.alumnos-track {
+    display: flex;
+    width: 3400px;
+    animation: scroll-alumnos 50s linear infinite;
+}
+
+.alumnos-track:hover { animation-play-state: paused; }
+
+.alumno-slide {
+    height: 320px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    perspective: 100px;
+}
+
+.alumno-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border: 4px solid transparent;
+    transition: all 0.5s ease;
+    filter: grayscale(40%) brightness(0.95);
+}
+
+.alumno-slide img:hover {
+    transform: scale(1.15);
+    filter: grayscale(0%) brightness(1.1);
+    border-color: var(--celeste);
+    box-shadow: 0 20px 40px rgba(140, 201, 231, 0.5);
+    z-index: 10;
+    cursor: pointer;
+}
+
+@keyframes scroll-alumnos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-1700px); }
+}
+
+/* --- RESPONSIVE ALUMNOS --- */
+@media (max-width: 768px) {
+    .alumnos-slider {
+        height: 300px;
+    }
+    .alumno-slide {
+        height: 250px;
+        width: 250px;
+        padding: 10px;
+    }
+    .alumnos-track {
+        width: 2700px;
+        animation: scroll-alumnos-mobile 35s linear infinite;
+    }
+    .alumno-slide img {
+        filter: grayscale(0%);
+    }
+    .alumnos-slider::before,
+    .alumnos-slider::after {
+        width: 10%;
+    }
+
+    @keyframes scroll-alumnos-mobile {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-1350px); }
+    }
+}
+
+
+/* =========================================
+   5. VIDEO SECTION
+   ========================================= */
+.video-section {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-full {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    filter: brightness(65%);
+    transition: filter 0.5s ease;
+}
+
+.video-full:hover { filter: brightness(85%); }
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.video-overlay h2 {
+    color: var(--blanco);
+    font-size: 2.5rem;
+    animation: slideIn 1s ease-out;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 1rem;
+    font-family: var(--fuente-titulos);
+    font-weight: 800;
+}
+
+/* --- RESPONSIVE VIDEO --- */
+@media (max-width: 768px) {
+    .video-section {
+        height: 50vh;
+    }
+    .video-overlay h2 {
+        font-size: 1.8rem;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .video-section {
+        height: 40vh;
+        min-height: 300px;
+    }
+    .video-overlay h2 {
+        font-size: 1.3rem;
+    }
+}
+
+
+/* =========================================
+   6. SECCIÓN INSTITUCION / FORMACION
    ========================================= */
 #patronato-formacion {
     background-color: var(--blanco);
@@ -265,18 +567,11 @@ header.scrolled {
     font-weight: 800;
 }
 
-.list-title {
-    color: var(--negro);
-    text-transform: uppercase;
-    font-family: var(--fuente-titulos);
-    font-weight: 800;
-}
-
+/* Listas Check */
 .list-check {
     list-style: none;
     padding-left: 0;
 }
-
 .list-check li {
     position: relative;
     padding-left: 30px;
@@ -285,7 +580,6 @@ header.scrolled {
     font-family: var(--fuente-cuerpo);
     font-weight: 800;
 }
-
 .list-check li::before {
     font-family: "Font Awesome 6 Free";
     content: '\f00c';
@@ -296,12 +590,12 @@ header.scrolled {
     color: var(--celeste);
 }
 
+/* Imágenes apiladas (Estilo Desktop) */
 .image-stack {
     position: relative;
     width: 100%;
     min-height: 500px;
 }
-
 .image-stack img {
     width: 47%;
     height: 380px;
@@ -309,69 +603,61 @@ header.scrolled {
     object-fit: cover;
     border-radius: 5px;
 }
+.image-stack .custom-shadow-1 { top: 0; left: 0; z-index: 2; }
+.image-stack .custom-shadow-2 { top: 100px; right: 0; z-index: 3; }
 
-.image-stack .custom-shadow-1 {
-    top: 0;
-    left: 0;
-    z-index: 2;
+/* --- RESPONSIVE FORMACION (El arreglo para que no se corten las imagenes apiladas) --- */
+@media (max-width: 992px) {
+    #patronato-formacion {
+        padding-top: 30px !important;
+    }
+    #patronato-formacion h2 {
+        font-size: 2.5rem !important;
+    }
+
+    /* Transformar la pila de imágenes absoluta en una columna simple */
+    .image-stack {
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding: 0;
+    }
+    .image-stack img {
+        position: relative !important;
+        width: 100% !important;
+        height: 300px !important;
+        max-width: 500px;
+        margin-bottom: 15px;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    /* Ocultar la segunda sombra decorativa en móvil */
+    .image-stack .custom-shadow-2 { display: none; }
 }
 
-.image-stack .custom-shadow-2 {
-    top: 100px;
-    right: 0;
-    z-index: 3;
+@media (max-width: 576px) {
+    #patronato-formacion {
+        padding-top: 20px !important;
+        padding-bottom: 40px;
+    }
+    #patronato-formacion h2 {
+        font-size: 1.8rem !important;
+    }
+    .image-stack img {
+        height: 250px !important;
+    }
 }
+
 
 /* =========================================
-   5. VIDEO SECTION
-   ========================================= */
-.video-section {
-    position: relative;
-    height: 70vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.video-full {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    filter: brightness(65%);
-    transition: filter 0.5s ease;
-}
-
-.video-full:hover {
-    filter: brightness(85%);
-}
-
-.video-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.video-overlay h2 {
-    color: var(--blanco);
-    font-size: 2.5rem;
-    animation: slideIn 1s ease-out;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 0 1rem;
-    font-family: var(--fuente-titulos);
-    font-weight: 800;
-}
-
-/* =========================================
-   6. SECCIÓN VALORES
+   7. SECCIÓN VALORES
    ========================================= */
 .valores-section {
     width: 100%;
@@ -414,9 +700,7 @@ header.scrolled {
     transition: transform 0.3s ease;
 }
 
-.valor:hover {
-    transform: translateY(-10px);
-}
+.valor:hover { transform: translateY(-10px); }
 
 .icono-contenedor {
     margin-bottom: 30px;
@@ -453,52 +737,28 @@ header.scrolled {
     font-weight: 800;
 }
 
+/* --- RESPONSIVE VALORES --- */
+@media (max-width: 992px) {
+    .valores {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 50px;
+    }
+    .valor {
+        flex: 0 0 calc(50% - 50px);
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .valores-section h2 { font-size: 28px; }
+    .valor { flex: 0 0 100%; }
+}
+
+
 /* =========================================
-   CORRECCIÓN TEXTO PRECIOS EN CURSOS
+   8. CURSOS
    ========================================= */
-.card-content-hover p {
-    font-size: 0.95rem;
-    margin: 0;
-    color: var(--blanco);
-    order: 0;
-    line-height: 1.3;
-    font-family: var(--fuente-cuerpo);
-    font-weight: 800;
-    text-decoration: none !important;
-}
-
-/* Específicamente para el texto tachado */
-.card-content-hover del {
-    text-decoration: line-through !important;
-    opacity: 0.8;
-    color: var(--gris) !important;
-}
-
-.card-content-hover strong {
-    color: var(--celeste) !important;
-    font-size: 1.1rem;
-}
-#cursos p {
-    font-weight: 800;
-    opacity: 0.9;
-    color: var(--blanco) ;
-    font-size: 1.2rem !important;
-    margin-bottom: 2rem !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-/* Asegurar que los elementos con AOS se muestren */
-[data-aos] {
-    opacity: 1 !important;
-    transform: none !important;
-}
-
-/* Si usas AOS, asegurar visibilidad */
-.aos-init:not(.aos-animate) {
-    opacity: 1 !important;
-    transform: none !important;
-}
 #cursos h2 {
     color: var(--celeste);
     text-transform: uppercase;
@@ -506,6 +766,17 @@ header.scrolled {
     line-height: 1.2;
     font-family: var(--fuente-titulos);
     font-weight: 800;
+}
+
+#cursos p {
+    font-weight: 800;
+    opacity: 0.9;
+    color: var(--blanco);
+    font-size: 1.2rem !important;
+    margin-bottom: 2rem !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .course-card {
@@ -537,9 +808,7 @@ header.scrolled {
 
 .card-content {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    bottom: 0; left: 0; width: 100%;
     padding: 1.5rem;
     color: var(--blanco);
     text-align: center;
@@ -591,6 +860,18 @@ header.scrolled {
     line-height: 1.3;
     font-family: var(--fuente-cuerpo);
     font-weight: 800;
+    text-decoration: none !important;
+}
+
+.card-content-hover del {
+    text-decoration: line-through !important;
+    opacity: 0.8;
+    color: var(--gris) !important;
+}
+
+.card-content-hover strong {
+    color: var(--celeste) !important;
+    font-size: 1.1rem;
 }
 
 .card-content-hover .badge {
@@ -648,29 +929,21 @@ header.scrolled {
 }
 
 .course-card:hover img,
-.course-card:focus-within img {
-    transform: scale(1.08);
-}
-
+.course-card:focus-within img { transform: scale(1.08); }
 .course-card:hover .card-overlay,
-.course-card:focus-within .card-overlay {
-    opacity: 1;
-}
-
+.course-card:focus-within .card-overlay { opacity: 1; }
 .course-card:hover .card-content-hover,
-.course-card:focus-within .card-content-hover {
-    max-height: 160px;
-    opacity: 1;
-}
-
+.course-card:focus-within .card-content-hover { max-height: 160px; opacity: 1; }
 .course-card:hover .highlight-line,
-.course-card:focus-within .highlight-line {
-    transform: scaleX(1);
-    opacity: 1;
-}
+.course-card:focus-within .highlight-line { transform: scaleX(1); opacity: 1; }
+
+/* Correcciones AOS */
+[data-aos] { opacity: 1 !important; transform: none !important; }
+.aos-init:not(.aos-animate) { opacity: 1 !important; transform: none !important; }
+
 
 /* =========================================
-   8. DESCUBRE & FOOTER
+   9. DESCUBRE & FOOTER
    ========================================= */
 .descubre-section {
     position: relative;
@@ -682,7 +955,6 @@ header.scrolled {
     border-top: 1px solid rgba(140, 201, 231, 0.1);
     border-bottom: 1px solid rgba(140, 201, 231, 0.1);
 }
-
 .descubre-section::before {
     content: "";
     position: absolute;
@@ -693,12 +965,7 @@ header.scrolled {
     z-index: 1;
     animation: shimmer 10s ease-in-out infinite alternate;
 }
-
-.descubre-overlay {
-    position: relative;
-    z-index: 2;
-    padding: 20px 20px;
-}
+.descubre-overlay { position: relative; z-index: 2; padding: 20px 20px; }
 
 .descubre-content h2 {
     font-size: clamp(1.8rem, 2.5vw, 2.4rem);
@@ -710,7 +977,6 @@ header.scrolled {
     font-family: var(--fuente-titulos);
     font-weight: 800;
 }
-
 .descubre-content p {
     font-size: clamp(1rem, 1.6vw, 1.3rem);
     color: var(--gris);
@@ -722,40 +988,22 @@ header.scrolled {
     font-weight: 800;
 }
 
-/* Footer */
-.footer {
-    background: #1a1a1a;
-    padding: 60px 0 20px;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
+/* Footer Styles */
+.footer { background: #1a1a1a; padding: 60px 0 20px; }
+.footer-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
     margin-bottom: 40px;
 }
-
-.footer-section {
-    padding: 0 25px;
-    position: relative;
-}
-
+.footer-section { padding: 0 25px; position: relative; }
 .footer-section:not(:last-child)::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 1px;
+    top: 0; right: 0; height: 100%; width: 1px;
     background: rgba(255, 255, 255, 0.1);
 }
-
 .footer-section h3 {
     font-size: 1.1rem;
     color: var(--blanco);
@@ -767,17 +1015,8 @@ header.scrolled {
     font-family: var(--fuente-titulos);
     font-weight: 800;
 }
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-}
-
+.footer-section ul { list-style: none; }
+.footer-section ul li { margin-bottom: 8px; display: flex; align-items: center; }
 .footer-section ul li a {
     color: #cccccc;
     text-decoration: none;
@@ -788,29 +1027,11 @@ header.scrolled {
     font-family: var(--fuente-cuerpo);
     font-weight: 800;
 }
+.footer-section ul li a:hover { color: var(--celeste); }
 
-.footer-section ul li a:hover {
-    color: var(--celeste);
-}
-
-.contact-info,
-.hours-list {
-    color: #cccccc;
-    font-weight: 800;
-}
-
-.contact-info li {
-    margin-bottom: 12px;
-    line-height: 1.4;
-    font-size: 0.95rem;
-}
-
-.contact-info i {
-    margin-right: 12px;
-    width: 16px;
-    color: var(--celeste);
-    font-size: 0.9rem;
-}
+.contact-info, .hours-list { color: #cccccc; font-weight: 800; }
+.contact-info li { margin-bottom: 12px; line-height: 1.4; font-size: 0.95rem; }
+.contact-info i { margin-right: 12px; width: 16px; color: var(--celeste); font-size: 0.9rem; }
 
 .promo-box {
     background: rgba(140, 201, 231, 0.08);
@@ -819,7 +1040,6 @@ header.scrolled {
     border-left: 2px solid var(--celeste);
     margin-bottom: 15px;
 }
-
 .promo-box p {
     color: #ffffff;
     line-height: 1.5;
@@ -828,34 +1048,17 @@ header.scrolled {
     font-size: 0.95rem;
     font-weight: 800;
 }
-
-.social-links {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    justify-content: center;
-}
-
+.social-links { display: flex; gap: 10px; margin-top: 20px; justify-content: center; }
 .social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    color: #cccccc;
+    display: flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px;
+    border-radius: 50%; color: #cccccc;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    font-size: 0.9rem;
+    transition: all 0.3s ease; text-decoration: none; font-size: 0.9rem;
 }
-
 .social-links a:hover {
-    color: #ffffff;
-    background-color: var(--celeste);
-    border-color: var(--celeste);
+    color: #ffffff; background-color: var(--celeste); border-color: var(--celeste);
 }
-
 .footer-bottom {
     text-align: center;
     padding-top: 25px;
@@ -865,8 +1068,33 @@ header.scrolled {
     font-weight: 800;
 }
 
+/* --- RESPONSIVE FOOTER --- */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .footer-section {
+        text-align: center;
+        padding: 0 20px;
+    }
+    .footer-section:not(:last-child)::after {
+        display: none;
+    }
+    .footer-section:not(:last-child)::before {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 20%;
+        width: 60%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+
 /* =========================================
-   9. FLOTANTES
+   10. BOTONES FLOTANTES
    ========================================= */
 .btn-flotante {
     position: fixed;
@@ -921,468 +1149,41 @@ header.scrolled {
     background-color: #128C7E;
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
 }
-
 .whatsapp-float i {
     font-size: 32px !important;
     color: white !important;
     display: block !important;
 }
 
+/* Animaciones */
 @keyframes pulse-whatsapp {
-    0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
-    }
-    70% {
-        box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-    }
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+    70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
 @keyframes shimmer {
-    0% {
-        transform: translateY(0px);
-        opacity: 0.6;
-    }
-    100% {
-        transform: translateY(-15px);
-        opacity: 1;
-    }
+    0% { transform: translateY(0px); opacity: 0.6; }
+    100% { transform: translateY(-15px); opacity: 1; }
 }
 
 @keyframes glowText {
-    from {
-        text-shadow: 0 0 8px rgba(140, 201, 231, 0.3), 0 0 16px rgba(0, 191, 255, 0.3);
-    }
-    to {
-        text-shadow: 0 0 16px rgba(140, 201, 231, 0.8), 0 0 32px rgba(0, 191, 255, 0.6);
-    }
+    from { text-shadow: 0 0 8px rgba(140, 201, 231, 0.3), 0 0 16px rgba(0, 191, 255, 0.3); }
+    to { text-shadow: 0 0 16px rgba(140, 201, 231, 0.8), 0 0 32px rgba(0, 191, 255, 0.6); }
 }
 
-/* =========================================
-   10. RESPONSIVE - CORREGIDO
-   ========================================= */
-
-/* Responsive Navbar */
+/* --- RESPONSIVE FLOTANTES --- */
 @media (max-width: 992px) {
-    .logo {
-        order: 1;
-        font-size: 1.7rem !important;
-    }
-
-    .logo i {
-        font-size: 1.9rem !important;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 70%;
-        height: 100vh;
-        background: var(--negro);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 6rem 2rem;
-        gap: 2rem;
-        transform: none;
-        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1000;
-        order: 2;
-        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
-    }
-
-    .nav-links.active {
-        left: 0;
-    }
-
-    .nav-links.active~.navbar .logo i,
-    body.menu-open .logo i {
-        transform: rotate(90deg);
-        color: var(--celeste-suave);
-    }
-
-    .nav-link {
-        font-size: 1.4rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        width: 100%;
-        padding: 1rem 0;
-    }
-
-    /* HERO RESPONSIVE */
-    .navbar {
-        height: 70px;
-        padding: 0 1rem;
-    }
-
-    .hero {
-        padding-top: 70px !important;
-    }
-
-    .hero-img {
-        height: 60vh;
-    }
-
-    .carousel-caption h5 {
-        font-size: 1.8rem;
-    }
-
-    .valores {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 50px;
-    }
-
-    .valor {
-        flex: 0 0 calc(50% - 50px);
-        max-width: 300px;
-    }
-
-    /* CORRECCIÓN BARBERÍA */
-    #patronato-formacion {
-        padding-top: 30px !important;
-    }
-
-    .image-stack {
-        width: 100%;
-        min-height: auto;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 2rem;
-        padding: 0;
-    }
-
-    .image-stack img {
-        position: relative !important;
-        width: 100% !important;
-        height: 300px !important;
-        max-width: 500px;
-        margin-bottom: 15px;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .image-stack .custom-shadow-2 {
-        display: none;
-    }
-
-    #patronato-formacion h2 {
-        font-size: 2.5rem !important;
-    }
-
     .btn-flotante {
         bottom: 90px;
         left: 15px;
         padding: 12px 20px;
         font-size: 0.9rem;
     }
-
     .whatsapp-float {
         bottom: 20px;
         right: 20px;
         width: 60px;
         height: 60px;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        height: 70px;
-        padding: 0 1rem;
-    }
-
-    .logo {
-        font-size: 1.6rem !important;
-    }
-
-    .hero-img {
-        height: 50vh;
-    }
-
-    .carousel-caption h5 {
-        font-size: 1.5rem;
-    }
-
-    .video-section {
-        height: 50vh;
-    }
-
-    .video-overlay h2 {
-        font-size: 1.8rem;
-        padding: 0 15px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .footer-section {
-        text-align: center;
-        padding: 0 20px;
-    }
-
-    .footer-section:not(:last-child)::after {
-        display: none;
-    }
-
-    .footer-section:not(:last-child)::before {
-        content: '';
-        position: absolute;
-        bottom: -15px;
-        left: 20%;
-        width: 60%;
-        height: 1px;
-        background: rgba(255, 255, 255, 0.1);
-    }
-}
-
-@media (max-width: 576px) {
-    .hero-img {
-        height: 45vh;
-    }
-
-    #patronato-formacion {
-        padding-top: 20px !important;
-        padding-bottom: 40px;
-    }
-
-    #patronato-formacion h2 {
-        font-size: 1.8rem !important;
-    }
-
-    .image-stack img {
-        height: 250px !important;
-    }
-
-    .valor {
-        flex: 0 0 100%;
-    }
-
-    .valores-section h2 {
-        font-size: 28px;
-    }
-
-    .video-section {
-        height: 40vh;
-        min-height: 300px;
-    }
-
-    .video-overlay h2 {
-        font-size: 1.3rem;
-    }
-
-    .nav-links {
-        width: 85%;
-        padding: 6rem 1.5rem;
-    }
-}
-
-/* Overlay y Animaciones */
-.menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 998;
-    backdrop-filter: blur(2px);
-}
-
-.menu-overlay.active {
-    display: block;
-    animation: fadeIn 0.3s ease;
-}
-
-body.menu-open {
-    overflow: hidden;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.nav-links.active .nav-item {
-    animation: slideInRight 0.4s ease forwards;
-    opacity: 0;
-    transform: translateX(-20px);
-}
-
-.nav-links.active .nav-item:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.nav-links.active .nav-item:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.nav-links.active .nav-item:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.nav-links.active .nav-item:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-@keyframes slideInRight {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* =========================================
-   CARRUSEL ALUMNOS (PREMIUM INFINITO)
-   ========================================= */
-
-#carrusel-alumnos-section {
-    background: var(--blanco);
-    padding-bottom: 80px;
-    overflow: hidden;
-}
-
-.titulo-alumnos {
-    font-family: var(--fuente-titulos);
-    font-weight: 800;
-    text-transform: uppercase;
-    color: var(--negro);
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 2;
-}
-
-/* Ventana del Carrusel */
-.alumnos-slider {
-    height: 380px; /* Un poco más alto para el efecto hover */
-    margin: auto;
-    position: relative;
-    width: 100%;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-}
-
-/* --- EFECTO ESPECIAL: MÁSCARA DE DESVANECIMIENTO --- */
-/* Esto crea la niebla blanca a los lados */
-.alumnos-slider::before,
-.alumnos-slider::after {
-    content: "";
-    height: 100%;
-    position: absolute;
-    width: 15%; /* Ancho del desvanecimiento */
-    z-index: 2;
-    pointer-events: none; /* Para poder dar click a través de la niebla */
-}
-
-.alumnos-slider::before {
-    left: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.alumnos-slider::after {
-    right: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-/* Pista */
-.alumnos-track {
-    display: flex;
-    width: 3400px; /* (300px ancho + 40px gap) * 10 imágenes */
-    /* VELOCIDAD REDUCIDA: 50s (antes 30s) */
-    animation: scroll-alumnos 50s linear infinite; 
-}
-
-/* Tarjeta Individual */
-.alumno-slide {
-    height: 320px;
-    width: 300px;
-    display: flex;
-    align-items: center;
-    padding: 15px; /* Espacio interno */
-    perspective: 100px;
-}
-
-/* Estilo de la Imagen (Marco fotográfico) */
-.alumno-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-    /* Sombra suave inicial */
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-    /* Borde transparente inicial */
-    border: 4px solid transparent; 
-    transition: all 0.5s ease;
-    /* Filtro elegante: un poco apagado hasta que pasas el mouse */
-    filter: grayscale(40%) brightness(0.95); 
-}
-
-/* --- EFECTO HOVER (AL PASAR EL MOUSE) --- */
-.alumno-slide img:hover {
-    transform: scale(1.15); /* Crece más */
-    filter: grayscale(0%) brightness(1.1); /* Color vivo */
-    /* Borde Celeste Brillante */
-    border-color: var(--celeste); 
-    /* Sombra azulada brillante */
-    box-shadow: 0 20px 40px rgba(140, 201, 231, 0.5); 
-    z-index: 10;
-    cursor: pointer;
-}
-
-/* Animación PC */
-@keyframes scroll-alumnos {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-1700px); } /* Mitad exacta */
-}
-
-/* Pausa suave al poner el mouse encima de TODA la pista */
-.alumnos-track:hover {
-    animation-play-state: paused;
-}
-
-/* === RESPONSIVE (Móviles) === */
-@media (max-width: 768px) {
-    .alumnos-slider { height: 300px; }
-    
-    .alumno-slide {
-        height: 250px;
-        width: 250px;
-        padding: 10px;
-    }
-    
-    /* Ancho recalculado: (250px + 20px padding total) * 10 = 2700px aprox */
-    /* Ajuste fino: 250 ancho imagen + 20px padding de la caja = 270px por item */
-    /* 270 * 10 = 2700px */
-    .alumnos-track {
-        width: 2700px;
-        /* Velocidad ajustada para móvil */
-        animation: scroll-alumnos-mobile 35s linear infinite; 
-    }
-
-    .alumno-slide img {
-        filter: grayscale(0%); /* En celular siempre a color */
-    }
-
-    /* Reducimos el efecto vignette en celular para ver más foto */
-    .alumnos-slider::before, .alumnos-slider::after {
-        width: 10%; 
-    }
-
-    @keyframes scroll-alumnos-mobile {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-1350px); } /* Mitad exacta de 2700 */
     }
 }
