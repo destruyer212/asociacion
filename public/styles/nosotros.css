@@ -905,3 +905,35 @@ body.menu-open {
   
 
 }
+
+/* Desktop: NO usar estilos de .page-wrapper */
+
+
+@media (max-width: 767px) {
+
+  
+
+  .page-wrapper {
+    margin: 22px;
+    padding: 20px;
+    background-color: #ffffff;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.252);
+  }
+
+  /* 🔥 ESTO ES LA SOLUCIÓN REAL */
+  .historia-section,
+  .mision-vision {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background: transparent !important;
+  }
+
+  /* También los .container de Bootstrap empujan */
+  .page-wrapper .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+
+}

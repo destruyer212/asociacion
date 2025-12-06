@@ -14,29 +14,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- CSS local -->
-   <link rel="preload" href="/styles/stylesservicio.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/styles/stylesservicio.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
-  <link rel="stylesheet" href="/styles/stylesservicio.css">
+    <link rel="stylesheet" href="/styles/stylesservicio.css">
   </noscript>
 </head>
 
 <body>
-    <!-- 🔹 NAVBAR -->
-    <header id="mainHeader">
-        <nav class="navbar">
-            <div class="logo" id="logoToggle">
-                <i class="fa-solid fa-scissors"></i>
-                <a href="/" class="logo-text">PATRONATO</a>
-            </div>
+  <!-- 🔹 NAVBAR -->
+  <header id="mainHeader">
+    <nav class="navbar">
+      <div class="logo" id="logoToggle">
+        <i class="fa-solid fa-scissors"></i>
+        <a href="/" class="logo-text">PATRONATO</a>
+      </div>
 
-            <div class="nav-links" id="navMenu">
-                <li class="nav-item"><a class="nav-link" href="nosotros">Nosotros</a></li>
-                <li class="nav-item"><a class="nav-link" href="servicios">Cursos</a></li>
-                <li class="nav-item"><a class="nav-link" href="matricula">Matricula</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacto">Contacto</a></li>
-            </div>
-        </nav>
-    </header>
+      <div class="nav-links" id="navMenu">
+        <li class="nav-item"><a class="nav-link" href="nosotros">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="servicios">Cursos</a></li>
+        <li class="nav-item"><a class="nav-link" href="matricula">Matricula</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto">Contacto</a></li>
+      </div>
+    </nav>
+  </header>
 
   <!-- HERO CURSOS -->
   <section class="hero-cursos">
@@ -53,199 +53,214 @@
     </div>
   </section>
 
-  <!-- SECCIÓN INFORMACIÓN ADICIONAL -->
-  <section class="info-cursos">
-    <div class="container">
-      <div class="header text-center">
-        <h2>¿POR QUÉ ELEGIRNOS?</h2>
-        <p class="lead">
-          Ofrecemos la mejor formación en belleza y estética con beneficios exclusivos para nuestros estudiantes.
-        </p>
+
+  <!--CONTENEDOR GENERAL-->
+
+  <main class="page-wrapper">
+    <!-- SECCIÓN INFORMACIÓN ADICIONAL -->
+    <section class="info-cursos">
+      <div class="container">
+        <div class="header text-center">
+          <h2>¿POR QUÉ ELEGIRNOS?</h2>
+          <p class="lead">
+            Ofrecemos la mejor formación en belleza y estética con beneficios exclusivos para nuestros estudiantes.
+          </p>
+        </div>
+
+        <div class="beneficios">
+          <div class="beneficio">
+            <i class="fa-solid fa-users icono-beneficio"></i>
+            <h4>Instructores Expertos</h4>
+            <p>Aprende con profesionales activos en la industria con años de experiencia.</p>
+          </div>
+
+          <div class="beneficio">
+            <i class="fa-solid fa-screwdriver-wrench icono-beneficio"></i>
+            <h4>Equipos Modernos</h4>
+            <p>Trabaja con herramientas de última generación y productos de alta calidad.</p>
+          </div>
+
+          <div class="beneficio">
+            <i class="fa-solid fa-award icono-beneficio"></i>
+            <h4>Certificación Oficial</h4>
+            <p>Obtén un diploma reconocido que avala tus conocimientos y habilidades.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="beneficios">
-        <div class="beneficio">
-          <i class="fa-solid fa-users icono-beneficio"></i>
-          <h4>Instructores Expertos</h4>
-          <p>Aprende con profesionales activos en la industria con años de experiencia.</p>
-        </div>
-
-        <div class="beneficio">
-          <i class="fa-solid fa-screwdriver-wrench icono-beneficio"></i>
-          <h4>Equipos Modernos</h4>
-          <p>Trabaja con herramientas de última generación y productos de alta calidad.</p>
-        </div>
-
-        <div class="beneficio">
-          <i class="fa-solid fa-award icono-beneficio"></i>
-          <h4>Certificación Oficial</h4>
-          <p>Obtén un diploma reconocido que avala tus conocimientos y habilidades.</p>
-        </div>
+    <!-- 🔹 Bloque superior con imagen y frase institucional -->
+    <div class="cursos-banner">
+      <div class="cursos-overlay">
+        <h2 class="intro-frase">FORMAMOS PROFESIONALES EN BELLEZA CON PASIÓN, TÉCNICA Y EXCELENCIA.</h2>
       </div>
     </div>
-  </section>
 
-  <!-- 🔹 Bloque superior con imagen y frase institucional -->
-  <div class="cursos-banner">
-    <div class="cursos-overlay">
-      <h2 class="intro-frase">FORMAMOS PROFESIONALES EN BELLEZA CON PASIÓN, TÉCNICA Y EXCELENCIA.</h2>
+    <!-- SECCIÓN DE CURSOS -->
+    <section id="cursos" class="cursos-section">
+      <div class="container">
+        <div class="header text-center">
+          <h2>NUESTROS CURSOS</h2>
+          <p class="lead">
+            Elige el curso que mejor se adapte a tus intereses y comienza tu camino en el mundo de la belleza.
+          </p>
+        </div>
+
+        <!-- Barbería Avanzada -->
+        <div class="curso">
+          <div class="curso-video">
+            <video autoplay muted loop playsinline preload="none">
+              <source src="https://www.pexels.com/es-es/download/video/4178099/" type="video/mp4">
+            </video>
+          </div>
+          <div class="curso-info">
+            <h3>Barbería Avanzada</h3>
+            <p>
+              Perfecciona tus habilidades en cortes modernos, técnicas de degradado, afeitado clásico y diseño de
+              barbas.
+              Aprende visagismo masculino, atención al cliente y manejo profesional de herramientas.
+            </p>
+            <p>
+              Ideal para quienes buscan una carrera sólida en barbería y desean diferenciarse con estilo y precisión
+              técnica.
+            </p>
+            <a href="/matricula" class="curso-boton">Matricúlate</a>
+          </div>
+        </div>
+
+        <!-- Maquillaje Profesional -->
+        <div class="curso">
+          <div class="curso-video">
+            <video autoplay muted loop playsinline preload="none">
+              <source src="https://www.pexels.com/es-es/download/video/6984844/" type="video/mp4">
+            </video>
+          </div>
+          <div class="curso-info">
+            <h3>Maquillaje Profesional</h3>
+            <p>
+              Aprende maquillaje social, de novia y artístico con técnicas actualizadas. Conoce los distintos tipos de
+              piel,
+              la correcta aplicación de productos y el uso del color para realzar cada rostro.
+            </p>
+            <p>
+              Este curso te prepara para eventos, pasarelas y producciones fotográficas, elevando tu nivel profesional
+              en el mundo del maquillaje.
+            </p>
+            <a href="/matricula" class="curso-boton">Matricúlate</a>
+          </div>
+        </div>
+
+        <!-- Diseño de Cejas -->
+        <div class="curso">
+          <div class="curso-video">
+            <video autoplay muted loop playsinline preload="none">
+              <source src="https://www.pexels.com/es-es/download/video/3181733/" type="video/mp4">
+            </video>
+          </div>
+          <div class="curso-info">
+            <h3>Diseño de Cejas</h3>
+            <p>
+              Domina el visagismo facial y aprende las técnicas más utilizadas para el diseño y perfilado de cejas.
+              Incluye depilación con hilo, diseño con henna y técnicas de pigmentación natural.
+            </p>
+            <p>
+              Un curso práctico que te convertirá en especialista en realzar la expresión y armonía del rostro.
+            </p>
+            <a href="/matricula" class="curso-boton">Matricúlate</a>
+          </div>
+        </div>
+
+        <!-- Diseño de Uñas -->
+        <div class="curso">
+          <div class="curso-video">
+            <video autoplay muted loop playsinline preload="none">
+              <source src="https://www.pexels.com/es-es/download/video/3997854/" type="video/mp4">
+            </video>
+          </div>
+          <div class="curso-info">
+            <h3>Diseño de Uñas</h3>
+            <p>
+              Aprende técnicas profesionales de manicure, pedicure, aplicación en gel y acrílico.
+              Desarrolla tu creatividad con decoraciones, encapsulados y tendencias actuales en el nail art.
+            </p>
+            <p>
+              Formación ideal para quienes desean destacarse en el mundo del cuidado y embellecimiento de manos y uñas.
+            </p>
+            <a href="/matricula" class="curso-boton">Matricúlate</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN GALERÍA DE TRABAJOS -->
+    <section class="galeria-trabajos">
+      <div class="container">
+        <div class="text-center header">
+          <h2>GALERÍA DE TRABAJOS</h2>
+          <p class="lead">
+            Mira algunos de los increíbles trabajos realizados por nuestros estudiantes y egresados.
+          </p>
+        </div>
+
+        <div class="galeria-grid">
+
+          <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/4351728/pexels-photo-4351728.jpeg" alt="Trabajo 1"
+              loading="lazy">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
+
+          <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg" alt="Trabajo 2"
+              loading="lazy">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
+
+          <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/34835303/pexels-photo-34835303.jpeg" alt="Trabajo 3"
+              loading="lazy">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
+
+          <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/34760895/pexels-photo-34760895.jpeg" alt="Trabajo 4"
+              loading="lazy">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
+
+          <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/4029925/pexels-photo-4029925.jpeg" alt="Trabajo 5"
+              loading="lazy">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
+
+          <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/906052/pexels-photo-906052.jpeg" alt="Trabajo 6" loading="lazy">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
+
+          <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/458766/pexels-photo-458766.jpeg" alt="Trabajo 7" loading="lazy">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
+
+          <div class="galeria-item">
+            <img src="https://images.pexels.com/photos/247287/pexels-photo-247287.jpeg" alt="Trabajo 8" loading="lazy">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Lightbox -->
+    <div id="lightbox" class="lightbox">
+      <span class="cerrar">&times;</span>
+      <img class="lightbox-img" src="" alt="Vista ampliada">
     </div>
-  </div>
 
-  <!-- SECCIÓN DE CURSOS -->
-  <section id="cursos" class="cursos-section">
-    <div class="container">
-      <div class="header text-center">
-        <h2>NUESTROS CURSOS</h2>
-        <p class="lead">
-          Elige el curso que mejor se adapte a tus intereses y comienza tu camino en el mundo de la belleza.
-        </p>
-      </div>
-
-      <!-- Barbería Avanzada -->
-      <div class="curso">
-        <div class="curso-video">
-          <video autoplay muted loop playsinline preload="none">
-            <source src="https://www.pexels.com/es-es/download/video/4178099/" type="video/mp4">
-          </video>
-        </div>
-        <div class="curso-info">
-          <h3>Barbería Avanzada</h3>
-          <p>
-            Perfecciona tus habilidades en cortes modernos, técnicas de degradado, afeitado clásico y diseño de barbas.
-            Aprende visagismo masculino, atención al cliente y manejo profesional de herramientas.
-          </p>
-          <p>
-            Ideal para quienes buscan una carrera sólida en barbería y desean diferenciarse con estilo y precisión técnica.
-          </p>
-          <a href="/matricula" class="curso-boton">Matricúlate</a>
-        </div>
-      </div>
-
-      <!-- Maquillaje Profesional -->
-      <div class="curso">
-        <div class="curso-video">
-          <video autoplay muted loop playsinline preload="none">
-            <source src="https://www.pexels.com/es-es/download/video/6984844/" type="video/mp4">
-          </video>
-        </div>
-        <div class="curso-info">
-          <h3>Maquillaje Profesional</h3>
-          <p>
-            Aprende maquillaje social, de novia y artístico con técnicas actualizadas. Conoce los distintos tipos de piel,
-            la correcta aplicación de productos y el uso del color para realzar cada rostro.
-          </p>
-          <p>
-            Este curso te prepara para eventos, pasarelas y producciones fotográficas, elevando tu nivel profesional en el mundo del maquillaje.
-          </p>
-          <a href="/matricula" class="curso-boton">Matricúlate</a>
-        </div>
-      </div>
-
-      <!-- Diseño de Cejas -->
-      <div class="curso">
-        <div class="curso-video">
-          <video autoplay muted loop playsinline preload="none">
-            <source src="https://www.pexels.com/es-es/download/video/3181733/" type="video/mp4">
-          </video>
-        </div>
-        <div class="curso-info">
-          <h3>Diseño de Cejas</h3>
-          <p>
-            Domina el visagismo facial y aprende las técnicas más utilizadas para el diseño y perfilado de cejas.
-            Incluye depilación con hilo, diseño con henna y técnicas de pigmentación natural.
-          </p>
-          <p>
-            Un curso práctico que te convertirá en especialista en realzar la expresión y armonía del rostro.
-          </p>
-          <a href="/matricula" class="curso-boton">Matricúlate</a>
-        </div>
-      </div>
-
-      <!-- Diseño de Uñas -->
-      <div class="curso">
-        <div class="curso-video">
-          <video autoplay muted loop playsinline preload="none">
-            <source src="https://www.pexels.com/es-es/download/video/3997854/" type="video/mp4">
-          </video>
-        </div>
-        <div class="curso-info">
-          <h3>Diseño de Uñas</h3>
-          <p>
-            Aprende técnicas profesionales de manicure, pedicure, aplicación en gel y acrílico.
-            Desarrolla tu creatividad con decoraciones, encapsulados y tendencias actuales en el nail art.
-          </p>
-          <p>
-            Formación ideal para quienes desean destacarse en el mundo del cuidado y embellecimiento de manos y uñas.
-          </p>
-          <a href="/matricula" class="curso-boton">Matricúlate</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SECCIÓN GALERÍA DE TRABAJOS -->
-  <section class="galeria-trabajos">
-    <div class="container">
-      <div class="text-center header">
-        <h2>GALERÍA DE TRABAJOS</h2>
-        <p class="lead">
-          Mira algunos de los increíbles trabajos realizados por nuestros estudiantes y egresados.
-        </p>
-      </div>
-
-      <div class="galeria-grid">
-
-        <div class="galeria-item">
-          <img src="https://images.pexels.com/photos/4351728/pexels-photo-4351728.jpeg" alt="Trabajo 1" loading="lazy">
-          <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-        </div>
-
-        <div class="galeria-item">
-          <img src="https://images.pexels.com/photos/3998415/pexels-photo-3998415.jpeg" alt="Trabajo 2" loading="lazy">
-          <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-        </div>
-
-        <div class="galeria-item">
-          <img src="https://images.pexels.com/photos/34835303/pexels-photo-34835303.jpeg" alt="Trabajo 3" loading="lazy">
-          <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-        </div>
-
-        <div class="galeria-item">
-          <img src="https://images.pexels.com/photos/34760895/pexels-photo-34760895.jpeg" alt="Trabajo 4" loading="lazy">
-          <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-        </div>
-
-        <div class="galeria-item">
-          <img src="https://images.pexels.com/photos/4029925/pexels-photo-4029925.jpeg" alt="Trabajo 5" loading="lazy">
-          <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-        </div>
-
-        <div class="galeria-item">
-          <img src="https://images.pexels.com/photos/906052/pexels-photo-906052.jpeg" alt="Trabajo 6" loading="lazy">
-          <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-        </div>
-
-        <div class="galeria-item">
-          <img src="https://images.pexels.com/photos/458766/pexels-photo-458766.jpeg" alt="Trabajo 7" loading="lazy">
-          <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-        </div>
-
-        <div class="galeria-item">
-          <img src="https://images.pexels.com/photos/247287/pexels-photo-247287.jpeg" alt="Trabajo 8" loading="lazy">
-          <div class="overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Modal Lightbox -->
-  <div id="lightbox" class="lightbox">
-    <span class="cerrar">&times;</span>
-    <img class="lightbox-img" src="" alt="Vista ampliada">
-  </div>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -321,8 +336,7 @@
   <script src="/js/servicios.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  
+
 </body>
 
 </html>
-

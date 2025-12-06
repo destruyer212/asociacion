@@ -16,7 +16,7 @@
 
   <!-- Iconos -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Fuentes optimizadas con preload -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
@@ -78,250 +78,255 @@
     </div>
   </section>
 
-  <!-- INFORMACIÓN DE CONTACTO -->
-  <section class="info-contacto py-5 py-lg-6 bg-light">
-    <div class="container">
-      <div class="row justify-content-center text-center mb-5">
-        <div class="col-12 col-lg-8">
-          <h2 class="fw-bold display-5 mb-4">¿CÓMO PODEMOS AYUDARTE?</h2>
-          <p class="lead">
-            Tenemos múltiples canales de comunicación para brindarte la mejor atención
-          </p>
+  <main class="page-wrapper">
+
+    <!-- INFORMACIÓN DE CONTACTO -->
+    <section class="info-contacto py-5 py-lg-6 bg-light">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-12 col-lg-8">
+            <h2 class="fw-bold display-5 mb-4">¿CÓMO PODEMOS AYUDARTE?</h2>
+            <p class="lead">
+              Tenemos múltiples canales de comunicación para brindarte la mejor atención
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Teléfono -->
+          <div class="col-md-4">
+            <div class="canal-contacto bg-white text-center p-4 rounded">
+              <i class="bi bi-telephone-fill text-celeste fs-1 mb-3"></i>
+              <h4 class="fw-bold mb-3">Llámanos</h4>
+              <p class="text-muted mb-3">Estamos disponibles para atenderte</p>
+              <a href="tel:+51987654321" class="btn btn-outline-dark">+51 933 221 981</a>
+            </div>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="col-md-4">
+            <div class="canal-contacto bg-white text-center p-4 rounded">
+              <i class="bi bi-whatsapp text-success fs-1 mb-3"></i>
+              <h4 class="fw-bold mb-3">WhatsApp</h4>
+              <p class="text-muted mb-3">Respuesta inmediata</p>
+              <a href="https://wa.me/51987654321" class="btn btn-success" target="_blank">
+                <i class="bi bi-whatsapp me-2"></i>Escribir por WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="col-md-4">
+            <div class="canal-contacto bg-white text-center p-4 rounded">
+              <i class="bi bi-envelope-fill text-celeste fs-1 mb-3"></i>
+              <h4 class="fw-bold mb-3">Email</h4>
+              <p class="text-muted mb-3">Te respondemos en 24 horas</p>
+              <a href="mailto:contacto@patronato.org.pe" class="btn btn-outline-dark">contacto@patronato.org.pe</a>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="row g-4">
-        <!-- Teléfono -->
-        <div class="col-md-4">
-          <div class="canal-contacto bg-white text-center p-4 rounded">
-            <i class="bi bi-telephone-fill text-celeste fs-1 mb-3"></i>
-            <h4 class="fw-bold mb-3">Llámanos</h4>
-            <p class="text-muted mb-3">Estamos disponibles para atenderte</p>
-            <a href="tel:+51987654321" class="btn btn-outline-dark">+51 933 221 981</a>
-          </div>
-        </div>
+    <!-- FORMULARIO DE CONTACTO CON FORMSPREE -->
+    <section id="formulario-contacto" class="formulario-contacto py-5 py-lg-6">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <div class="row g-0 align-items-stretch">
 
-        <!-- WhatsApp -->
-        <div class="col-md-4">
-          <div class="canal-contacto bg-white text-center p-4 rounded">
-            <i class="bi bi-whatsapp text-success fs-1 mb-3"></i>
-            <h4 class="fw-bold mb-3">WhatsApp</h4>
-            <p class="text-muted mb-3">Respuesta inmediata</p>
-            <a href="https://wa.me/51987654321" class="btn btn-success" target="_blank">
-              <i class="bi bi-whatsapp me-2"></i>Escribir por WhatsApp
-            </a>
-          </div>
-        </div>
+              <!-- Información de Contacto -->
+              <div class="col-md-6 bg-dark text-white">
+                <div class="p-4 p-lg-5 h-100">
+                  <h3 class="fw-bold mb-4">INFORMACIÓN DE CONTACTO</h3>
 
-        <!-- Email -->
-        <div class="col-md-4">
-          <div class="canal-contacto bg-white text-center p-4 rounded">
-            <i class="bi bi-envelope-fill text-celeste fs-1 mb-3"></i>
-            <h4 class="fw-bold mb-3">Email</h4>
-            <p class="text-muted mb-3">Te respondemos en 24 horas</p>
-            <a href="mailto:contacto@patronato.org.pe" class="btn btn-outline-dark">contacto@patronato.org.pe</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+                  <div class="contacto-detalles">
+                    <div class="detalle-item mb-4">
+                      <i class="bi bi-geo-alt-fill text-celeste fs-4 me-3 d-none d-md-block"></i>
+                      <div>
+                        <h5 class="fw-bold">Dirección</h5>
+                        <p class="mb-0">Av. Alejandro Bertello Bollati, Callao 07036</p>
+                      </div>
+                    </div>
 
-  <!-- FORMULARIO DE CONTACTO CON FORMSPREE -->
-  <section id="formulario-contacto" class="formulario-contacto py-5 py-lg-6">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-          <div class="row g-0 align-items-stretch">
+                    <div class="detalle-item mb-4">
+                      <i class="bi bi-telephone-fill text-celeste fs-4 me-3 d-none d-md-block"></i>
+                      <div>
+                        <h5 class="fw-bold">Teléfono</h5>
+                        <p class="mb-0">+51 933 221 981</p>
+                      </div>
+                    </div>
 
-            <!-- Información de Contacto -->
-            <div class="col-md-6 bg-dark text-white">
-              <div class="p-4 p-lg-5 h-100">
-                <h3 class="fw-bold mb-4">INFORMACIÓN DE CONTACTO</h3>
+                    <div class="detalle-item mb-4">
+                      <i class="bi bi-envelope-fill text-celeste fs-4 me-3 d-none d-md-block"></i>
+                      <div>
+                        <h5 class="fw-bold">Email</h5>
+                        <p class="mb-0">contacto@patronato.org.pe</p>
+                      </div>
+                    </div>
 
-                <div class="contacto-detalles">
-                  <div class="detalle-item mb-4">
-                    <i class="bi bi-geo-alt-fill text-celeste fs-4 me-3 d-none d-md-block"></i>
-                    <div>
-                      <h5 class="fw-bold">Dirección</h5>
-                      <p class="mb-0">Av. Alejandro Bertello Bollati, Callao 07036</p>
+                    <div class="detalle-item mb-4">
+                      <i class="bi bi-clock-fill text-celeste fs-4 me-3 d-none d-md-block"></i>
+                      <div>
+                        <h5 class="fw-bold">Horario de Atención</h5>
+                        <p class="mb-0">Lunes a Viernes: 8:00 AM - 13:00 PM</p>
+
+                      </div>
                     </div>
                   </div>
 
-                  <div class="detalle-item mb-4">
-                    <i class="bi bi-telephone-fill text-celeste fs-4 me-3 d-none d-md-block"></i>
-                    <div>
-                      <h5 class="fw-bold">Teléfono</h5>
-                      <p class="mb-0">+51 933 221 981</p>
+                  <div class="redes-sociales mt-5">
+                    <h5 class="fw-bold mb-3">Síguenos en Redes</h5>
+                    <div class="d-flex gap-3">
+                      <a href="#" class="red-social">
+                        <i class="bi bi-facebook fs-4"></i>
+                      </a>
+                      <a href="#" class="red-social">
+                        <i class="bi bi-instagram fs-4"></i>
+                      </a>
+                      <a href="#" class="red-social">
+                        <i class="bi bi-tiktok fs-4"></i>
+                      </a>
+                      <a href="#" class="red-social">
+                        <i class="bi bi-youtube fs-4"></i>
+                      </a>
                     </div>
-                  </div>
-
-                  <div class="detalle-item mb-4">
-                    <i class="bi bi-envelope-fill text-celeste fs-4 me-3 d-none d-md-block"></i>
-                    <div>
-                      <h5 class="fw-bold">Email</h5>
-                      <p class="mb-0">contacto@patronato.org.pe</p>
-                    </div>
-                  </div>
-
-                  <div class="detalle-item mb-4">
-                    <i class="bi bi-clock-fill text-celeste fs-4 me-3 d-none d-md-block"></i>
-                    <div>
-                      <h5 class="fw-bold">Horario de Atención</h5>
-                      <p class="mb-0">Lunes a Viernes: 8:00 AM - 13:00 PM</p>
-                     
-                    </div>
-                  </div>
-                </div>
-
-                <div class="redes-sociales mt-5">
-                  <h5 class="fw-bold mb-3">Síguenos en Redes</h5>
-                  <div class="d-flex gap-3">
-                    <a href="#" class="red-social">
-                      <i class="bi bi-facebook fs-4"></i>
-                    </a>
-                    <a href="#" class="red-social">
-                      <i class="bi bi-instagram fs-4"></i>
-                    </a>
-                    <a href="#" class="red-social">
-                      <i class="bi bi-tiktok fs-4"></i>
-                    </a>
-                    <a href="#" class="red-social">
-                      <i class="bi bi-youtube fs-4"></i>
-                    </a>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Formulario Formspree -->
-            <div class="col-md-6 bg-white">
-              <div class="p-4 p-lg-5 h-100">
-                <h3 class="fw-bold mb-4">ENVÍANOS UN MENSAJE</h3>
-                <form action="https://formspree.io/f/xgvpqozo" method="POST" id="contact-form">
+              <!-- Formulario Formspree -->
+              <div class="col-md-6 bg-white">
+                <div class="p-4 p-lg-5 h-100">
+                  <h3 class="fw-bold mb-4">ENVÍANOS UN MENSAJE</h3>
+                  <form action="https://formspree.io/f/xgvpqozo" method="POST" id="contact-form">
 
-                  <!-- CONFIGURACIÓN PARA RECARGAR LA PÁGINA 
+                    <!-- CONFIGURACIÓN PARA RECARGAR LA PÁGINA 
                   <input type="hidden" name="_next" value="https://tudominio.com/contacto">-->
 
-                 <!-- CONFIGURACIONES FORMSPREE 
+                    <!-- CONFIGURACIONES FORMSPREE 
   <input type="hidden" name="_next" value="https://tudominio.com/contacto">
   <input type="hidden" name="_subject" value="Nuevo mensaje web - Asociación Patronato">
   <input type="hidden" name="_replyto" value="contacto@patronato.org.pe">
   <input type="hidden" name="_language" value="es">
   <input type="text" name="_gotcha" style="display:none">-->
 
-                  <!-- Configuraciones de Formspree -->
-                  <input type="hidden" name="_subject" value="Nuevo mensaje desde la web - Contacto">
-                  <input type="hidden" name="_language" value="es">
-                  <input type="text" name="_gotcha" style="display:none">
+                    <!-- Configuraciones de Formspree -->
+                    <input type="hidden" name="_subject" value="Nuevo mensaje desde la web - Contacto">
+                    <input type="hidden" name="_language" value="es">
+                    <input type="text" name="_gotcha" style="display:none">
 
-                  <!-- Campo Nombre -->
-                  <div class="mb-3">
-                    <label for="nombre" class="form-label fw-bold">Nombre Completo *</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" required>
-                  </div>
+                    <!-- Campo Nombre -->
+                    <div class="mb-3">
+                      <label for="nombre" class="form-label fw-bold">Nombre Completo *</label>
+                      <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
 
-                  <!-- Campo Email -->
-                  <div class="mb-3">
-                    <label for="email" class="form-label fw-bold">Correo Electrónico *</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                  </div>
+                    <!-- Campo Email -->
+                    <div class="mb-3">
+                      <label for="email" class="form-label fw-bold">Correo Electrónico *</label>
+                      <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
 
-                  <!-- Campo Teléfono -->
-                  <div class="mb-3">
-                    <label for="telefono" class="form-label fw-bold">Teléfono</label>
-                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="+51 XXX XXX XXX">
-                  </div>
+                    <!-- Campo Teléfono -->
+                    <div class="mb-3">
+                      <label for="telefono" class="form-label fw-bold">Teléfono</label>
+                      <input type="tel" class="form-control" id="telefono" name="telefono"
+                        placeholder="+51 XXX XXX XXX">
+                    </div>
 
-                  <!-- Campo Asunto -->
-                  <div class="mb-3">
-                    <label for="asunto" class="form-label fw-bold">Asunto *</label>
-                    <select class="form-select" id="asunto" name="asunto" required>
-                      <option value="">Selecciona un asunto</option>
-                      <option value="Información de Cursos">Información de Cursos</option>
-                      <option value="Matrícula">Matrícula</option>
-                      <option value="Reclamacion">Reclamación</option>
-                      <option value="Soporte Técnico">Soporte Técnico</option>
-                      <option value="Otro">Otro</option>
-                    </select>
-                  </div>
+                    <!-- Campo Asunto -->
+                    <div class="mb-3">
+                      <label for="asunto" class="form-label fw-bold">Asunto *</label>
+                      <select class="form-select" id="asunto" name="asunto" required>
+                        <option value="">Selecciona un asunto</option>
+                        <option value="Información de Cursos">Información de Cursos</option>
+                        <option value="Matrícula">Matrícula</option>
+                        <option value="Reclamacion">Reclamación</option>
+                        <option value="Soporte Técnico">Soporte Técnico</option>
+                        <option value="Otro">Otro</option>
+                      </select>
+                    </div>
 
-                  <!-- Campo Mensaje -->
-                  <div class="mb-4">
-                    <label for="mensaje" class="form-label fw-bold">Mensaje *</label>
-                    <textarea class="form-control" id="mensaje" name="mensaje" rows="5"
-                      placeholder="Cuéntanos en qué podemos ayudarte..." required></textarea>
-                  </div>
+                    <!-- Campo Mensaje -->
+                    <div class="mb-4">
+                      <label for="mensaje" class="form-label fw-bold">Mensaje *</label>
+                      <textarea class="form-control" id="mensaje" name="mensaje" rows="5"
+                        placeholder="Cuéntanos en qué podemos ayudarte..." required></textarea>
+                    </div>
 
-                  <!-- Botón de Envío -->
-                  <button type="submit" class="btn btn-dark btn-lg w-100">
-                    <i class="bi bi-send me-2"></i>Enviar Mensaje
-                  </button>
+                    <!-- Botón de Envío -->
+                    <button type="submit" class="btn btn-dark btn-lg w-100">
+                      <i class="bi bi-send me-2"></i>Enviar Mensaje
+                    </button>
 
-                  <!-- Texto de confirmación -->
-                  <p class="text-muted small mt-3">
-                    <i class="bi bi-shield-check me-1"></i>
-                    Al enviar este formulario, aceptas nuestra política de privacidad.
-                  </p>
-                </form>
+                    <!-- Texto de confirmación -->
+                    <p class="text-muted small mt-3">
+                      <i class="bi bi-shield-check me-1"></i>
+                      Al enviar este formulario, aceptas nuestra política de privacidad.
+                    </p>
+                  </form>
+                </div>
               </div>
+
             </div>
-
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- MAPA -->
-  <section class="mapa-section py-5 py-lg-6 bg-light">
-    <div class="container">
-      <div class="row justify-content-center text-center mb-5">
-        <div class="col-12 col-lg-8">
-          <h2 class="fw-bold display-5 mb-4">VISÍTANOS</h2>
-          <p class="lead">
-            Ven a conocernos personalmente en nuestras instalaciones
-          </p>
+    <!-- MAPA -->
+    <section class="mapa-section py-5 py-lg-6 bg-light">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-12 col-lg-8">
+            <h2 class="fw-bold display-5 mb-4">VISÍTANOS</h2>
+            <p class="lead">
+              Ven a conocernos personalmente en nuestras instalaciones
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-12">
-          <div class="mapa-container rounded">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.429681318954!2d-77.1069538249394!3d-12.013912188220308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cdf5e7298f69%3A0xf2dedcfe3ccade02!2sASOCIACI%C3%93N%20PRIVADA%20DE%20PATRONATO!5e0!3m2!1ses!2spe!4v1760907364462!5m2!1ses!2spe"
-              width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Asociación Privada de Patronato">
-            </iframe>
+        <div class="row">
+          <div class="col-12">
+            <div class="mapa-container rounded">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.429681318954!2d-77.1069538249394!3d-12.013912188220308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cdf5e7298f69%3A0xf2dedcfe3ccade02!2sASOCIACI%C3%93N%20PRIVADA%20DE%20PATRONATO!5e0!3m2!1ses!2spe!4v1760907364462!5m2!1ses!2spe"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Asociación Privada de Patronato">
+              </iframe>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+  </main>
 
   <!-- FOOTER  -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <!-- Contacto -->
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Av. Alejandro Bertello, Callao</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+51 933 221 981</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>info@patronato.com</span>
-                        </li>
-                    </ul>
-                </div>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Contacto -->
+        <div class="footer-section">
+          <h3>Contacto</h3>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Av. Alejandro Bertello, Callao</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>+51 933 221 981</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>info@patronato.com</span>
+            </li>
+          </ul>
+        </div>
 
-                 <!-- Horarios -->
+        <!-- Horarios -->
         <div class="footer-section">
           <h3>Horarios</h3>
           <ul class="hours-list">
@@ -330,161 +335,161 @@
           </ul>
         </div>
 
-                 <!--Enlaces -->
-      <div class="footer-section">
-        <h3>Enlaces</h3>
-        <ul>
-          <li><a href="/matricula">Matricula</a></li>
-          <li><a href="/servicios">Servicio</a></li>
-          <li><a href="/nosotros">Nosotros</a></li>
-          <li><a href="/contacto">Contacto</a></li>
-        </ul>
+        <!--Enlaces -->
+        <div class="footer-section">
+          <h3>Enlaces</h3>
+          <ul>
+            <li><a href="/matricula">Matricula</a></li>
+            <li><a href="/servicios">Servicio</a></li>
+            <li><a href="/nosotros">Nosotros</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Promoción -->
+        <div class="footer-section">
+          <h3>Promoción Especial</h3>
+          <div class="promo-box">
+            <p>Inscríbete ahora y obtén un descuento exclusivo en todos nuestros cursos.</p>
+          </div>
+          <p style="font-size: 0.9rem; color: #a0a0a0;">Válido por tiempo limitado</p>
+
+          <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
       </div>
 
-                <!-- Promoción -->
-                <div class="footer-section">
-                    <h3>Promoción Especial</h3>
-                    <div class="promo-box">
-                        <p>Inscríbete ahora y obtén un descuento exclusivo en todos nuestros cursos.</p>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #a0a0a0;">Válido por tiempo limitado</p>
-
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 Asociación Privada de Patronato. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Asociación Privada de Patronato. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
 
   <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        // AOS Animations
-        AOS.init({
-            once: true,
-            duration: 800,
-            easing: 'ease-out-cubic',
-            offset: 100
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // AOS Animations
+    AOS.init({
+      once: true,
+      duration: 800,
+      easing: 'ease-out-cubic',
+      offset: 100
+    });
+
+    // Scroll header effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // JavaScript para el funcionamiento del menú móvil
+    document.addEventListener('DOMContentLoaded', function () {
+      const logoIcon = document.querySelector('.logo i');
+      const logoText = document.querySelector('.logo');
+      const navMenu = document.getElementById('navMenu');
+      const menuOverlay = document.createElement('div');
+      menuOverlay.className = 'menu-overlay';
+      document.body.appendChild(menuOverlay);
+
+      let isMenuOpen = false;
+
+      // Función para abrir/cerrar el menú
+      function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        navMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+
+        // Animación del icono
+        if (isMenuOpen) {
+          logoIcon.style.transform = 'rotate(90deg)';
+          logoIcon.style.color = 'var(--celeste-suave)';
+        } else {
+          logoIcon.style.transform = 'rotate(0deg)';
+          logoIcon.style.color = 'var(--celeste)';
+        }
+      }
+
+      // Evento para el icono de tijeras (hamburguesa) - SOLO en móvil
+      function handleIconClick(e) {
+        // Verificar si estamos en modo móvil (ancho <= 992px)
+        if (window.innerWidth <= 992) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleMenu();
+        }
+      }
+
+      // Evento para el texto del logo - SIEMPRE redirige al index
+      function handleLogoClick(e) {
+        // Si estamos en móvil y el clic fue en el icono, no hacer nada
+        if (window.innerWidth <= 992 && e.target.tagName === 'I') {
+          return;
+        }
+        // Redirigir al index
+        window.location.href = '/';
+      }
+
+      // Agregar event listeners
+      logoIcon.addEventListener('click', handleIconClick);
+      logoText.addEventListener('click', handleLogoClick);
+
+      // Cerrar menú al hacer clic en el overlay
+      menuOverlay.addEventListener('click', function () {
+        if (window.innerWidth <= 992 && isMenuOpen) {
+          toggleMenu();
+        }
+      });
+
+      // Cerrar menú al hacer clic en un enlace (solo en móvil)
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+          if (window.innerWidth <= 992 && isMenuOpen) {
+            toggleMenu();
+          }
+        });
+      });
+
+      // Cerrar menú con la tecla ESC (solo en móvil)
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && window.innerWidth <= 992 && isMenuOpen) {
+          toggleMenu();
+        }
+      });
+
+      // Cerrar menú al redimensionar la ventana a desktop
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 992 && isMenuOpen) {
+          toggleMenu();
+        }
+      });
+
+      // Restaurar estado del icono al cargar la página
+      logoIcon.style.transform = 'rotate(0deg)';
+      logoIcon.style.color = 'var(--celeste)';
+    });
+
+    // Inicialización mejorada del carrusel
+    document.addEventListener('DOMContentLoaded', function () {
+      const carousel = document.getElementById('heroCarousel');
+
+      if (carousel) {
+        // Inicializar carrusel de Bootstrap
+        const bsCarousel = new bootstrap.Carousel(carousel, {
+          interval: 3000,
+          wrap: true,
+          touch: true
         });
 
-        // Scroll header effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.navbar');
-            nav.classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // JavaScript para el funcionamiento del menú móvil
-        document.addEventListener('DOMContentLoaded', function () {
-            const logoIcon = document.querySelector('.logo i');
-            const logoText = document.querySelector('.logo');
-            const navMenu = document.getElementById('navMenu');
-            const menuOverlay = document.createElement('div');
-            menuOverlay.className = 'menu-overlay';
-            document.body.appendChild(menuOverlay);
-
-            let isMenuOpen = false;
-
-            // Función para abrir/cerrar el menú
-            function toggleMenu() {
-                isMenuOpen = !isMenuOpen;
-                navMenu.classList.toggle('active');
-                menuOverlay.classList.toggle('active');
-                document.body.classList.toggle('menu-open');
-
-                // Animación del icono
-                if (isMenuOpen) {
-                    logoIcon.style.transform = 'rotate(90deg)';
-                    logoIcon.style.color = 'var(--celeste-suave)';
-                } else {
-                    logoIcon.style.transform = 'rotate(0deg)';
-                    logoIcon.style.color = 'var(--celeste)';
-                }
-            }
-
-            // Evento para el icono de tijeras (hamburguesa) - SOLO en móvil
-            function handleIconClick(e) {
-                // Verificar si estamos en modo móvil (ancho <= 992px)
-                if (window.innerWidth <= 992) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleMenu();
-                }
-            }
-
-            // Evento para el texto del logo - SIEMPRE redirige al index
-            function handleLogoClick(e) {
-                // Si estamos en móvil y el clic fue en el icono, no hacer nada
-                if (window.innerWidth <= 992 && e.target.tagName === 'I') {
-                    return;
-                }
-                // Redirigir al index
-                window.location.href = '/';
-            }
-
-            // Agregar event listeners
-            logoIcon.addEventListener('click', handleIconClick);
-            logoText.addEventListener('click', handleLogoClick);
-
-            // Cerrar menú al hacer clic en el overlay
-            menuOverlay.addEventListener('click', function () {
-                if (window.innerWidth <= 992 && isMenuOpen) {
-                    toggleMenu();
-                }
-            });
-
-            // Cerrar menú al hacer clic en un enlace (solo en móvil)
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function () {
-                    if (window.innerWidth <= 992 && isMenuOpen) {
-                        toggleMenu();
-                    }
-                });
-            });
-
-            // Cerrar menú con la tecla ESC (solo en móvil)
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && window.innerWidth <= 992 && isMenuOpen) {
-                    toggleMenu();
-                }
-            });
-
-            // Cerrar menú al redimensionar la ventana a desktop
-            window.addEventListener('resize', function () {
-                if (window.innerWidth > 992 && isMenuOpen) {
-                    toggleMenu();
-                }
-            });
-
-            // Restaurar estado del icono al cargar la página
-            logoIcon.style.transform = 'rotate(0deg)';
-            logoIcon.style.color = 'var(--celeste)';
-        });
-
-        // Inicialización mejorada del carrusel
-        document.addEventListener('DOMContentLoaded', function () {
-            const carousel = document.getElementById('heroCarousel');
-
-            if (carousel) {
-                // Inicializar carrusel de Bootstrap
-                const bsCarousel = new bootstrap.Carousel(carousel, {
-                    interval: 3000,
-                    wrap: true,
-                    touch: true
-                });
-
-                console.log('Carrusel inicializado correctamente');
-            }
-        });
-    </script>
+        console.log('Carrusel inicializado correctamente');
+      }
+    });
+  </script>
 
 </html>
