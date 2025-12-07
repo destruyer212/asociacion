@@ -1102,7 +1102,10 @@ body.menu-open {
 }
 
 @media (max-width: 768px) {
-  
+
+    .hero-cursos{
+        min-height: 60vh !important;
+    }
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -1126,15 +1129,11 @@ body.menu-open {
     height: 1px;
     background: rgba(255, 255, 255, 0.1);
   }
-}
 
-@media (max-width: 767px) {
-  
-
-
-  .page-wrapper {
+    .page-wrapper {
     margin: 22px;
     background-color: #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.252);
   }
 }
+
