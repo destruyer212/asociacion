@@ -734,3 +734,28 @@ footer {
     padding-right: 15px;
   }
 }
+/* ===================== AJUSTES RESPONSIVE (MÓVIL) ===================== */
+@media (max-width: 768px) {
+  /* 1. Contenedor tipo "tarjeta" para móvil */
+  .page-wrapper {
+    margin: 15px;
+    padding: 20px 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  /* 2. Reducir tamaños de fuente gigantes */
+  h1.fw-bold { font-size: 2.5rem !important; }
+  h2.display-5 { font-size: 1.8rem !important; }
+  .hero-subtitle { font-size: 1rem !important; }
+  
+  /* 3. Evitar que el email se salga de la tarjeta */
+  .canal-contacto a, 
+  .canal-contacto p,
+  .detalle-item p {
+    font-size: 0.9rem;
+    word-break: break-word; /* Rompe el texto si es muy largo */
+    overflow-wrap: break-word;
+  }
+}
