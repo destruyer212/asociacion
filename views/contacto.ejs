@@ -25,9 +25,14 @@
 
   <header id="mainHeader">
     <nav class="navbar">
-      <div class="logo" id="logoToggle">
-        <i class="fa-solid fa-scissors"></i>
-        <a href="/" class="logo-text">PATRONATO</a>
+      <div class="logo">
+
+        <span id="botonMenu" class="d-inline-block" style="cursor: pointer; padding-right: 10px;">
+          <i class="fa-solid fa-scissors"></i>
+        </span>
+
+        <a href="/" class="logo-text text-decoration-none">PATRONATO</a>
+
       </div>
 
       <ul class="nav-links" id="navMenu">
@@ -308,15 +313,16 @@
     });
 
     // ============================================
-    // LÓGICA DEL MENÚ HAMBURGUESA ARREGLADA
+    // LÓGICA DEL MENÚ HAMBURGUESA (CORREGIDA)
     // ============================================
     document.addEventListener('DOMContentLoaded', function () {
-      // Seleccionamos el contenedor COMPLETO del logo
-      const logoToggle = document.getElementById('logoToggle');
-      const logoIcon = document.querySelector('.logo i');
+
+      // AQUI ESTÁ LA CLAVE: Seleccionamos solo las tijeras
+      const botonMenu = document.getElementById('botonMenu');
+      const iconoTijera = document.querySelector('#botonMenu i');
       const navMenu = document.getElementById('navMenu');
 
-      // Creamos el overlay si no existe
+      // Crear overlay si no existe
       let menuOverlay = document.querySelector('.menu-overlay');
       if (!menuOverlay) {
         menuOverlay = document.createElement('div');
@@ -334,26 +340,24 @@
 
         // Animación de la tijera
         if (isMenuOpen) {
-          logoIcon.style.transform = 'rotate(90deg)';
-          logoIcon.style.color = 'var(--celeste-suave)';
+          iconoTijera.style.transform = 'rotate(90deg)';
+          iconoTijera.style.color = 'var(--celeste-suave, #0dcaf0)';
         } else {
-          logoIcon.style.transform = 'rotate(0deg)';
-          logoIcon.style.color = 'var(--celeste)';
+          iconoTijera.style.transform = 'rotate(0deg)';
+          iconoTijera.style.color = '';
         }
       }
 
-      function handleClick(e) {
-        // Solo activamos en pantallas pequeñas (<= 992px)
-        if (window.innerWidth <= 992) {
-          e.preventDefault(); // Evita que el enlace recargue la página
-          e.stopPropagation();
-          toggleMenu();
-        }
-      }
-
-      // Asignamos el evento al logo entero
-      if (logoToggle) {
-        logoToggle.addEventListener('click', handleClick);
+      // Evento Click SOLO en las tijeras
+      if (botonMenu) {
+        botonMenu.addEventListener('click', function (e) {
+          // Solo activamos en pantallas pequeñas
+          if (window.innerWidth <= 992) {
+            e.stopPropagation(); // Evita que el clic "suba"
+            e.preventDefault();  // Evita comportamientos extraños
+            toggleMenu();
+          }
+        });
       }
 
       // Cerrar al dar click fuera

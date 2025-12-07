@@ -1137,3 +1137,96 @@ body.menu-open {
   }
 }
 
+/* =========================================
+   FIX RESPONSIVE: MENÚ LATERAL (HAMBURGUESA)
+   ========================================= */
+@media (max-width: 992px) {
+    /* 1. Ajuste de la barra superior */
+    .navbar {
+        height: 70px;
+        padding: 0 1rem;
+    }
+
+    /* 2. Ajuste del Logo */
+    .logo {
+        order: 1;
+        font-size: 1.7rem !important;
+    }
+
+    .logo i {
+        font-size: 1.9rem !important;
+    }
+
+    /* 3. MENÚ LATERAL (El contenedor negro) */
+    .nav-links {
+        position: fixed;
+        
+        /* ANCLAJE VERTICAL: Obliga a pegar arriba y abajo */
+        top: 0;
+        bottom: 0; 
+        
+        /* ALTURA: Usamos 'dvh' que se adapta a las barras del navegador móvil */
+        height: 100dvh; 
+        
+        /* RESPALDO PARA IPHONE: Truco para iOS Safari */
+        min-height: -webkit-fill-available;
+        
+        /* POSICIÓN Y ANCHO */
+        left: -100%;
+        width: 70%;
+        max-width: 320px; /* Evita que sea muy ancho en tablets */
+        
+        /* ESTILOS VISUALES */
+        background: var(--negro);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Alineado a la izquierda */
+        padding: 6rem 2rem;
+        gap: 2rem;
+        
+        /* TRANSICIÓN */
+        transform: none;
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        order: 2;
+        box-shadow: 5px 0 50px rgba(0, 0, 0, 0.5);
+        
+        /* SCROLL: Si el menú tiene muchas opciones, permite bajar */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Estado Activo (Cuando se abre) */
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* Animación de entrada de los textos */
+    .nav-links.active .nav-item {
+        animation: slideInRight 0.4s ease forwards;
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    /* Retrasos en cascada para los items */
+    .nav-links.active .nav-item:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links.active .nav-item:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links.active .nav-item:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links.active .nav-item:nth-child(4) { animation-delay: 0.4s; }
+
+    /* Efecto en el icono de hamburguesa/tijeras */
+    .nav-links.active ~ .navbar .logo i,
+    body.menu-open .logo i {
+        transform: rotate(90deg);
+        color: var(--celeste-suave);
+    }
+
+    /* Estilo de los enlaces dentro del menú móvil */
+    .nav-link {
+        font-size: 1.4rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        padding: 1rem 0;
+    }
+}
+
