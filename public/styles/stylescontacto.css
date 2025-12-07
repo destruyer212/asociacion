@@ -734,3 +734,28 @@ footer {
     padding-right: 15px;
   }
 }
+
+@media (max-width: 767px) {
+  
+
+  .hero-contacto{
+    height: 55vh;
+    display: flex; /* 1. Activa el modo flexible */
+        flex-direction: column; /* 2. Apila los elementos verticalmente */
+        justify-content: center; /* 3. Centra en el eje vertical */
+        align-items: center; /* 4. Centra en el eje horizontal */
+        text-align: center
+  }
+
+  .page-wrapper {
+    margin: 22px;
+    padding: 20px;
+    background-color: #ffffff;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.252);
+  }
+
+  
+  
+
+}

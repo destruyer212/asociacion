@@ -692,9 +692,7 @@ body.menu-open {
   will-change: transform, opacity;
 }
 
-.curso-video video {
-  loading: lazy;
-}
+
 
 .curso {
   transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
@@ -1104,6 +1102,7 @@ body.menu-open {
 }
 
 @media (max-width: 768px) {
+  
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -1130,6 +1129,9 @@ body.menu-open {
 }
 
 @media (max-width: 767px) {
+  
+
+
   .page-wrapper {
     margin: 22px;
     background-color: #ffffff;

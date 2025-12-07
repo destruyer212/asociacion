@@ -365,11 +365,11 @@ body.menu-open {
 }
 
 /* ===================== RESPONSIVE HERO ===================== */
-@media (max-width: 800px) {
+@media (max-width: 767px) {
 
   .hero-matricula,
   .hero-cursos {
-    min-height: 60vh;
+    min-height: 55vh;
     padding-top: 100px;
   }
 
