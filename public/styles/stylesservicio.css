@@ -1104,7 +1104,7 @@ body.menu-open {
 @media (max-width: 768px) {
 
     .hero-cursos{
-        min-height: 60vh !important;
+        min-height: 63.5vh !important;
     }
   .footer-grid {
     grid-template-columns: 1fr;
