@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head', { title: 'Error | ' + (site?.name || 'Asociación Privada de Patronato'), extraCss: [] }) %>
+<body>
+  <%- include('../partials/navbar') %>
+
+  <main class="container py-5" style="min-height: 60vh;">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8 text-center">
+        <h1 class="fw-bold mb-3">Ocurrió un error</h1>
+        <p class="lead text-muted mb-4">
+          Intenta nuevamente en unos minutos.
+        </p>
+        <a class="btn btn-dark px-4" href="/">Volver al inicio</a>
+      </div>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+  <%- include('../partials/scripts') %>
+</body>
+</html>

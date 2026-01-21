@@ -1,48 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Asociación Privada de Patronato</title>
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@300;400;600;800&display=swap"
-        rel="stylesheet">
-    <!-- AOS Animations -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="preload" href="/styles/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="/styles/style.css">
-    </noscript>
-</head>
+<%- include('partials/head', { title: 'Asociación Privada de Patronato', extraCss: ['/styles/style.css'] }) %>
 
 <body>
-    <!-- 🔹 NAVBAR -->
-    <header id="mainHeader">
-        <nav class="navbar">
-            <div class="logo" id="logoToggle">
-                <i class="fa-solid fa-scissors"></i>
-                <a href="/" class="logo-text">PATRONATO</a>
-            </div>
-
-            <div class="nav-links" id="navMenu">
-                <li class="nav-item"><a class="nav-link" href="nosotros">Nosotros</a></li>
-                <li class="nav-item"><a class="nav-link" href="servicios">Cursos</a></li>
-                <li class="nav-item"><a class="nav-link" href="matricula">Matricula</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacto">Contacto</a></li>
-            </div>
-        </nav>
-    </header>
+    <%- include('partials/navbar') %>
 
     <!-- HERO CARRUSEL -->
     <section class="hero">
@@ -56,15 +17,15 @@
 
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img loading="lazy" src="images/BannerPrincipal.jpg" class="d-block w-100 hero-img"
+                    <img loading="lazy" src="/images/BannerPrincipal.jpg" class="d-block w-100 hero-img"
                         alt="Descripción Slide 1">
                 </div>
                 <div class="carousel-item">
-                    <img loading="lazy" src="images/BannerPrincipal2.jpg" class="d-block w-100 hero-img"
+                    <img loading="lazy" src="/images/BannerPrincipal2.jpg" class="d-block w-100 hero-img"
                         alt="Descripción Slide 2">
                 </div>
                 <div class="carousel-item">
-                    <img loading="lazy" src="images/BannerPrincipal3.jpg" class="d-block w-100 hero-img"
+                    <img loading="lazy" src="/images/BannerPrincipal3.jpg" class="d-block w-100 hero-img"
                         alt="Descripción Slide 3">
                 </div>
             </div>
@@ -210,7 +171,7 @@
                                 <div class="card-content-hover">
                                     <p>De <del>S/ 99.90</del> a <strong>S/ 49.99</strong></p>
                                     <span class="badge bg-warning text-dark">OFERTA</span>
-                                    <a href="https://wa.me/971107501?text=Hola,%20quiero%20más%20información%20sobre%20los%20cursos" class="btn-ver-mas">Matricúlate ya</a>
+                                    <a href="https://wa.me/51933221981?text=Hola,%20quiero%20más%20información%20sobre%20los%20cursos" class="btn-ver-mas">Matricúlate ya</a>
                                 </div>
                                 <div class="highlight-wrap">
                                     <span class="highlight-line"></span>
@@ -230,7 +191,7 @@
                                 <div class="card-content-hover">
                                     <p>De <del>S/ 99.90</del> a <strong>S/ 49.99</strong></p>
                                     <span class="badge bg-warning text-dark">OFERTA</span>
-                                    <a href="https://wa.me/971107501?text=Hola,%20quiero%20más%20información%20sobre%20los%20cursos" class="btn-ver-mas">Matricúlate ya</a>
+                                    <a href="https://wa.me/51933221981?text=Hola,%20quiero%20más%20información%20sobre%20los%20cursos" class="btn-ver-mas">Matricúlate ya</a>
                                 </div>
                                 <div class="highlight-wrap">
                                     <span class="highlight-line"></span>
@@ -250,7 +211,7 @@
                                 <div class="card-content-hover">
                                     <p>De <del>S/ 99.90</del> a <strong>S/ 49.99</strong></p>
                                     <span class="badge bg-warning text-dark">OFERTA</span>
-                                    <a href="https://wa.me/971107501?text=Hola,%20quiero%20más%20información%20sobre%20los%20cursos" class="btn-ver-mas">Matricúlate ya</a>
+                                    <a href="https://wa.me/51933221981?text=Hola,%20quiero%20más%20información%20sobre%20los%20cursos" class="btn-ver-mas">Matricúlate ya</a>
                                 </div>
                                 <div class="highlight-wrap">
                                     <span class="highlight-line"></span>
@@ -264,71 +225,7 @@
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <!-- Contacto -->
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Av. Alejandro Bertello, Callao</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+51 971 107 501</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>cetprogn@gmail.com</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Horarios -->
-                <div class="footer-section">
-                    <h3>Horarios</h3>
-                    <ul class="hours-list">
-                        <li><strong>Lunes a Viernes</strong></li>
-                        <li>8:00am - 13:00pm</li>
-
-                    </ul>
-                </div>
-                <!-- Cursos -->
-                <div class="footer-section">
-                    <h3>Cursos</h3>
-                    <ul>
-                        <li><a href="/matricula">Matricula</a></li>
-                        <li><a href="/servicios">Servicio</a></li>
-                        <li><a href="/nosotros">Nosotros</a></li>
-                        <li><a href="/contacto">Contacto</a></li>
-                    </ul>
-                </div>
-                <!-- Promoción -->
-                <div class="footer-section">
-                    <h3>Promoción Especial</h3>
-                    <div class="promo-box">
-                        <p>Inscríbete ahora y obtén un descuento exclusivo en todos nuestros cursos.</p>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #a0a0a0;">Válido por tiempo limitado</p>
-
-                    <div class="social-links">
-                        <!--<a href="#"><i class="fab fa-instagram"></i></a>
-                        
-                        <a href="#"><i class="fab fa-tiktok"></i></a>-->
-                        <a href="https://wa.me/971107501"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.facebook.com/p/Asociaci%C3%B3n-Privada-De-Patronato-100081356607130/"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 Asociación Privada de Patronato. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    <%- include('partials/footer') %>
 
     <!-- BOTÓN FLOTANTE MATRÍCULA -->
     <a href="/matricula" class="btn-flotante">
@@ -336,131 +233,17 @@
     </a>
 
     <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/971107501"
+    <a href="https://wa.me/51933221981"
         class="whatsapp-float" target="_blank">
         <i class="bi bi-whatsapp"></i>
     </a>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
+    <%- include('partials/scripts') %>
     <script>
-        // AOS Animations
-        AOS.init({
-            once: true,
-            duration: 800,
-            easing: 'ease-out-cubic',
-            offset: 100
-        });
-
-        // Scroll header effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.navbar');
-            nav.classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // JavaScript para el funcionamiento del menú móvil
-        document.addEventListener('DOMContentLoaded', function () {
-            const logoIcon = document.querySelector('.logo i');
-            const logoText = document.querySelector('.logo');
-            const navMenu = document.getElementById('navMenu');
-            const menuOverlay = document.createElement('div');
-            menuOverlay.className = 'menu-overlay';
-            document.body.appendChild(menuOverlay);
-
-            let isMenuOpen = false;
-
-            // Función para abrir/cerrar el menú
-            function toggleMenu() {
-                isMenuOpen = !isMenuOpen;
-                navMenu.classList.toggle('active');
-                menuOverlay.classList.toggle('active');
-                document.body.classList.toggle('menu-open');
-
-                // Animación del icono
-                if (isMenuOpen) {
-                    logoIcon.style.transform = 'rotate(90deg)';
-                    logoIcon.style.color = 'var(--celeste-suave)';
-                } else {
-                    logoIcon.style.transform = 'rotate(0deg)';
-                    logoIcon.style.color = 'var(--celeste)';
-                }
-            }
-
-            // Evento para el icono de tijeras (hamburguesa) - SOLO en móvil
-            function handleIconClick(e) {
-                // Verificar si estamos en modo móvil (ancho <= 992px)
-                if (window.innerWidth <= 992) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleMenu();
-                }
-            }
-
-            // Evento para el texto del logo - SIEMPRE redirige al index
-            function handleLogoClick(e) {
-                // Si estamos en móvil y el clic fue en el icono, no hacer nada
-                if (window.innerWidth <= 992 && e.target.tagName === 'I') {
-                    return;
-                }
-                // Redirigir al index
-                window.location.href = '/';
-            }
-
-            // Agregar event listeners
-            logoIcon.addEventListener('click', handleIconClick);
-            logoText.addEventListener('click', handleLogoClick);
-
-            // Cerrar menú al hacer clic en el overlay
-            menuOverlay.addEventListener('click', function () {
-                if (window.innerWidth <= 992 && isMenuOpen) {
-                    toggleMenu();
-                }
-            });
-
-            // Cerrar menú al hacer clic en un enlace (solo en móvil)
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function () {
-                    if (window.innerWidth <= 992 && isMenuOpen) {
-                        toggleMenu();
-                    }
-                });
-            });
-
-            // Cerrar menú con la tecla ESC (solo en móvil)
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && window.innerWidth <= 992 && isMenuOpen) {
-                    toggleMenu();
-                }
-            });
-
-            // Cerrar menú al redimensionar la ventana a desktop
-            window.addEventListener('resize', function () {
-                if (window.innerWidth > 992 && isMenuOpen) {
-                    toggleMenu();
-                }
-            });
-
-            // Restaurar estado del icono al cargar la página
-            logoIcon.style.transform = 'rotate(0deg)';
-            logoIcon.style.color = 'var(--celeste)';
-        });
-
-        // Inicialización mejorada del carrusel
         document.addEventListener('DOMContentLoaded', function () {
             const carousel = document.getElementById('heroCarousel');
-
-            if (carousel) {
-                // Inicializar carrusel de Bootstrap
-                const bsCarousel = new bootstrap.Carousel(carousel, {
-                    interval: 3000,
-                    wrap: true,
-                    touch: true
-                });
-
-                console.log('Carrusel inicializado correctamente');
+            if (carousel && window.bootstrap) {
+                new bootstrap.Carousel(carousel, { interval: 3000, wrap: true, touch: true });
             }
         });
     </script>

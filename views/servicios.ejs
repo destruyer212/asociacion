@@ -1,38 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cursos | Asociación Privada de Patronato</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;600;800&display=swap"
-    rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/stylesservicio.css">
-</head>
+<%- include('partials/head', { title: 'Cursos | Asociación Privada de Patronato', extraCss: ['/styles/stylesservicio.css'] }) %>
 
 <body>
-  <header id="mainHeader">
-    <nav class="navbar">
-      <div class="logo" id="logoToggle">
-        <i class="fa-solid fa-scissors"></i>
-        <a href="/" class="logo-text">PATRONATO</a>
-      </div>
-      <ul class="nav-links" id="navMenu">
-        <li class="nav-item"><a class="nav-link" href="nosotros">Nosotros</a></li>
-        <li class="nav-item"><a class="nav-link" href="servicios">Cursos</a></li>
-        <li class="nav-item"><a class="nav-link" href="matricula">Matricula</a></li>
-        <li class="nav-item"><a class="nav-link" href="contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  <%- include('partials/navbar') %>
 
   <section class="hero-cursos">
     <div class="container">
@@ -234,134 +205,7 @@
 
   </main>
 
-  <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <!-- Contacto -->
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Av. Alejandro Bertello, Callao</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+51 971 107 501</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>cetprogn@gmail.com</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Horarios -->
-                <div class="footer-section">
-                    <h3>Horarios</h3>
-                    <ul class="hours-list">
-                        <li><strong>Lunes a Viernes</strong></li>
-                        <li>8:00am - 13:00pm</li>
-
-                    </ul>
-                </div>
-                <!-- Cursos -->
-                <div class="footer-section">
-                    <h3>Cursos</h3>
-                    <ul>
-                        <li><a href="/matricula">Matricula</a></li>
-                        <li><a href="/servicios">Servicio</a></li>
-                        <li><a href="/nosotros">Nosotros</a></li>
-                        <li><a href="/contacto">Contacto</a></li>
-                    </ul>
-                </div>
-                <!-- Promoción -->
-                <div class="footer-section">
-                    <h3>Promoción Especial</h3>
-                    <div class="promo-box">
-                        <p>Inscríbete ahora y obtén un descuento exclusivo en todos nuestros cursos.</p>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #a0a0a0;">Válido por tiempo limitado</p>
-
-                    <div class="social-links">
-                        <!--<a href="#"><i class="fab fa-instagram"></i></a>
-                        
-                        <a href="#"><i class="fab fa-tiktok"></i></a>-->
-                        <a href="https://wa.me/971107501"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.facebook.com/p/Asociaci%C3%B3n-Privada-De-Patronato-100081356607130/"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 Asociación Privada de Patronato. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="/js/servicios.js"></script>
-
-  <script>
-    AOS.init({ once: true, duration: 800, easing: 'ease-out-cubic', offset: 100 });
-
-    window.addEventListener('scroll', () => {
-      const nav = document.querySelector('.navbar');
-      if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    // MENU HAMBURGUESA ARREGLADO
-    document.addEventListener('DOMContentLoaded', function () {
-      const logoToggle = document.getElementById('logoToggle');
-      const logoIcon = document.querySelector('.logo i');
-      const navMenu = document.getElementById('navMenu');
-
-      let menuOverlay = document.querySelector('.menu-overlay');
-      if (!menuOverlay) {
-        menuOverlay = document.createElement('div');
-        menuOverlay.className = 'menu-overlay';
-        document.body.appendChild(menuOverlay);
-      }
-      let isMenuOpen = false;
-
-      function toggleMenu() {
-        isMenuOpen = !isMenuOpen;
-        navMenu.classList.toggle('active');
-        menuOverlay.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
-        if (isMenuOpen) {
-          logoIcon.style.transform = 'rotate(90deg)';
-          logoIcon.style.color = 'var(--celeste-suave)';
-        } else {
-          logoIcon.style.transform = 'rotate(0deg)';
-          logoIcon.style.color = 'var(--celeste)';
-        }
-      }
-      function handleClick(e) {
-        if (window.innerWidth <= 992) {
-          e.preventDefault();
-          e.stopPropagation();
-          toggleMenu();
-        }
-      }
-      if (logoToggle) logoToggle.addEventListener('click', handleClick);
-
-      menuOverlay.addEventListener('click', function () {
-        if (window.innerWidth <= 992 && isMenuOpen) toggleMenu();
-      });
-      const navLinks = document.querySelectorAll('.nav-link');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function () {
-          if (window.innerWidth <= 992 && isMenuOpen) toggleMenu();
-        });
-      });
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 992 && isMenuOpen) toggleMenu();
-      });
-    });
-  </script>
+  <%- include('partials/footer') %>
+  <%- include('partials/scripts', { extraJs: ['/js/servicios.js'] }) %>
 </body>
-
 </html>

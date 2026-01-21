@@ -1,0 +1,58 @@
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Contacto</h3>
+        <ul class="contact-info">
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span><%= site.address %></span>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <span><%= site.phoneDisplay %></span>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <span><%= site.email %></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Horarios</h3>
+        <ul class="hours-list">
+          <li><strong><%= site.hours.label %></strong></li>
+          <li><%= site.hours.range %></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Cursos</h3>
+        <ul>
+          <li><a href="/matricula">Matricula</a></li>
+          <li><a href="/servicios">Servicio</a></li>
+          <li><a href="/nosotros">Nosotros</a></li>
+          <li><a href="/contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Promoción Especial</h3>
+        <div class="promo-box">
+          <p>Inscríbete ahora y obtén un descuento exclusivo en todos nuestros cursos.</p>
+        </div>
+        <p style="font-size: 0.9rem; color: #a0a0a0;">Válido por tiempo limitado</p>
+
+        <div class="social-links">
+          <a href="<%= site.whatsappWaMe %>"><i class="fab fa-whatsapp"></i></a>
+          <a href="<%= site.facebookUrl %>"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <%= site.year %> <%= site.name %>. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
